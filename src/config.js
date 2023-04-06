@@ -5,5 +5,12 @@ module.exports = {
     database: 'express',
     password: 'express',
     port: 5432
+  },
+  mongodb: {
+    host: '127.0.0.1',
+    user: '',
+    password: '',
+    database: 'express',
+    port: 27017
   }
 }

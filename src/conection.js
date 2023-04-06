@@ -1,15 +1,11 @@
-const postgress = require('pg')
-const {postgres_database} = require('./config')
+const mongoose = require('mongoose')
+const {mongodb} = require('./config')
 
-const conection = new postgress.Client(postgres_database)
-
-conection.connect((err, conn) => {
-  if (err) {
-    console.log('Ha ocurrido un error al conectar')
-  }else {
-    console.log('Conección exitosa')
-  }
-  return conn
+const conection = mongoose.connect(`mongodb://${mongodb.host}:${mongodb.port}/${mongodb.database}`)
+.then((db)=>{
+  console.log('Conectado a MongoDB')
+}).catch((err)=>{
+  console.log('Error '+err)
 })
 
 module.exports = conection
